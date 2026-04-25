@@ -18,12 +18,14 @@ public class Constants {
 
     public static FollowerConstants followerConstants = new FollowerConstants()
             .mass(10.25)
-            .headingPIDFCoefficients(new PIDFCoefficients(1.5,0,0.00001,0.055))
+            .headingPIDFCoefficients(new PIDFCoefficients(1,0,0.00001,0.055))
             .drivePIDFCoefficients(new FilteredPIDFCoefficients(0.75,0,0.00001,0.6,0))
             .useSecondaryTranslationalPIDF(true)
             .useSecondaryHeadingPIDF(true)
             .useSecondaryDrivePIDF(true)
             .forwardZeroPowerAcceleration(-26.2366605549332)
+            .lateralZeroPowerAcceleration(-60.326310794020785)
+            .centripetalScaling(0.0005)
 
             .lateralZeroPowerAcceleration(-60.780323877099995);
     public static PathConstraints pathConstraints = new PathConstraints(0.99, 100, 1.5, 1.2);
@@ -46,8 +48,8 @@ public class Constants {
 
     public static ThreeWheelConstants localizerConstants = new ThreeWheelConstants()
             .forwardTicksToInches(0.002984549)
-            .strafeTicksToInches(-0.00297651915)
-            .turnTicksToInches(0.001445051897062565)
+            .strafeTicksToInches(-0.00297651915) //0.002971218280499472
+            .turnTicksToInches(0.0028753727932492937)
             .leftPodY(8.5)
             .rightPodY(-6)
             .strafePodX(2.5)
